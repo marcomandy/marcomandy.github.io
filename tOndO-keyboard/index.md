@@ -1,4 +1,4 @@
-## tondO Keyboard Privacy Policy
+## Privacy Policy
 
 ### Data and third-party frameworks
 tondO keyboard developers have privacy at heart.
