@@ -6,7 +6,7 @@ tondO keyboard uses no third-party analytics or advertising frameworks, it logs 
 
 ### Microphone
 tondO keyboard may access your microphone only after permission is granted. This access can be removed at any time in the Settings app. tondO keyboard does not collect or store recordings or any information about the recordings.
-Microphone is accessed only when the user presses the speech recognition button and solely for the duration of the speech recognition. Speech recognition is performed via android speech recognition service.
+Microphone is accessed only when the user presses the speech recognition button and solely for the duration of the speech recognition. Speech recognition is performed via Android speech recognition service.
 
 ### Warning pop-up
 The Warning pop-up you may see when enabling tOndO keyboard for the first time is the Android standard warning and should appear for any other third-party keyboard.
