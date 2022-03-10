@@ -1,7 +1,6 @@
 ## Privacy Policy
 
 ### Data and third-party frameworks
-tondO keyboard developers have privacy at heart.
 tondO keyboard uses no third-party analytics or advertising frameworks, it logs no information, it does not collect, transmit, distribute or sell your data.
 
 ### Microphone
