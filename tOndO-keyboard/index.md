@@ -1,10 +1,10 @@
 ## Privacy Policy
 
 ### Data and third-party frameworks
-tondO keyboard uses no third-party analytics or advertising frameworks, it logs no information, it does not collect, transmit, distribute or sell your data.
+tOndO keyboard uses no third-party analytics or advertising frameworks, it logs no information, it does not collect, transmit, distribute or sell your data.
 
 ### Microphone
-tondO keyboard may access your microphone only after permission is granted. This access can be removed at any time in the Settings app. tondO keyboard does not collect or store recordings or any information about the recordings.
+tOndO keyboard may access your microphone only after permission is granted. This access can be removed at any time in the Settings app. tOndO keyboard does not collect or store recordings or any information about the recordings.
 Microphone is accessed only when the user presses the speech recognition button and solely for the duration of the speech recognition. Speech recognition is performed via Android speech recognition service.
 
 ### Warning pop-up
@@ -15,4 +15,4 @@ If you email the developer for support or other feedback, the emails with email 
 
 
 ### Changes to This Policy
-You are advised to review this policy periodically for any changes. By using the tondO keyboard app, you agree to the collection and use of information in accordance with this policy.
+You are advised to review this policy periodically for any changes. By using the tOndO keyboard app, you agree to the collection and use of information in accordance with this policy.
