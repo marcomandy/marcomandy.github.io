@@ -1425,54 +1425,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
                       r.querySelector(".label").textContent = t, r.querySelector(".statistic").textContent = o, a.appendChild(r)
                   })), this.shadowRoot.querySelector("button#share-button").addEventListener("click", (function(a) {
                       a.preventDefault(), a.stopPropagation();
-                      us(function(e) {
-                          var a = e.evaluations,
-                              s = e.dayOffset,
-                              t = e.rowIndex,
-                              o = e.isHardMode,
-                              r = e.isWin,
-                              n = JSON.parse(window.localStorage.getItem(j)),
-                              i = JSON.parse(window.localStorage.getItem(S)),
-                              l = "Par🇮🇹le n°".concat(s);
-                          l += " ".concat(r ? t : "X", "/").concat(6), o && (l += "*");
-                          var d = "";
-                          return a.forEach((function(e) {
-                              e && (e.forEach((function(e) {
-                                  if (e) {
-                                      var a = "";
-                                      switch (e) {
-                                          case Ia:
-                                              a = function(e) {
-                                                  return e ? "🟧" : "🟩"
-                                              }(i);
-                                              break;
-                                          case Ta:
-                                              a = function(e) {
-                                                  return e ? "🟦" : "🟨"
-                                              }(i);
-                                              break;
-                                          case Ca:
-                                              a = function(e) {
-                                                  return e ? "⬛" : "⬜"
-                                              }(n)
-                                      }
-                                      d += a
-                                  }
-                              })), d += "\n")
-                          })), {
-                              text: "".concat(l, "\n\n").concat(d.trimEnd())
-                          }
-                      }({
-                          evaluations: e.gameApp.evaluations,
-                          dayOffset: e.gameApp.dayOffset,
-                          rowIndex: e.gameApp.rowIndex,
-                          isHardMode: e.gameApp.hardMode,
-                          isWin: e.gameApp.gameStatus === Za
-                      }), (function() {
-                          e.gameApp.addToast("Buon compleanno Beppe!", 2e3, !0)
-                      }), (function() {
-                          e.gameApp.addToast("Errore nella condivisione", 2e3, !0)
-                      }))
+                      window.open("https://youtu.be/BjiCo1lkL44", "_blank");
                   }))
               }
           }]), t
