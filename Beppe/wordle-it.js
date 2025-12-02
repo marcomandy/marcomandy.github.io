@@ -972,8 +972,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
   }
 
   function Pa(e) {
-      var a, s = Na(e);
-      return a = s % Aa.length, Aa[a]
+      return "beppe"
   }
 
   function Na(e) {
