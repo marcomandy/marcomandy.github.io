@@ -1589,3 +1589,77 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
       value: !0
   }), e
 }({});
+!function(){
+  function injectStyles(sr){
+    if(sr.getElementById('mobile-title-fix')) return !0;
+    var style=document.createElement('style');
+    style.id='mobile-title-fix';
+    style.textContent=
+      'header{gap:8px;}\n'+
+      'header .title{font-weight:700;font-size:28px;letter-spacing:0.05rem;text-transform:uppercase;text-align:center;white-space:nowrap;overflow:hidden;flex:1;min-width:0;}\n'+
+      '@media (max-width:360px){header .title{font-size:24px;letter-spacing:0.04rem;}}';
+    sr.appendChild(style);
+    return !0;
+  }
+
+  function shrinkToFit(el){
+    var MIN_FONT=12;
+    var MIN_LETTER_SPACING=0;
+    el.style.fontSize='';
+    el.style.letterSpacing='';
+    var cs=window.getComputedStyle(el);
+    var fontPx=parseFloat(cs.fontSize)||28;
+    var letterSpacing=cs.letterSpacing==='normal'?0:parseFloat(cs.letterSpacing)||0;
+    el.style.whiteSpace='nowrap';
+    while(el.scrollWidth>el.clientWidth && letterSpacing>MIN_LETTER_SPACING){
+      letterSpacing-=0.2;
+      el.style.letterSpacing=letterSpacing+'px';
+    }
+    while(el.scrollWidth>el.clientWidth && fontPx>MIN_FONT){
+      fontPx-=0.5;
+      el.style.fontSize=fontPx+'px';
+    }
+  }
+
+  function applyFix(app){
+    if(!app||!app.shadowRoot) return !1;
+    var sr=app.shadowRoot;
+    var title=sr.querySelector('header .title');
+    if(!title) return !1;
+    injectStyles(sr);
+    shrinkToFit(title);
+    return !0;
+  }
+
+  function waitForTitle(app,timeoutMs){
+    if(void 0===timeoutMs) timeoutMs=3e4;
+    var start=Date.now();
+    var interval=setInterval(function(){
+      if(applyFix(app)){clearInterval(interval);return}
+      if(Date.now()-start>timeoutMs) clearInterval(interval);
+    },100);
+    var tryObserve=function(){
+      if(!app.shadowRoot) return;
+      var obs=new MutationObserver(function(){
+        if(applyFix(app)) obs.disconnect();
+      });
+      obs.observe(app.shadowRoot,{childList:!0,subtree:!0});
+    };
+    tryObserve();
+  }
+
+  function start(){
+    if(window.customElements&&customElements.whenDefined){
+      customElements.whenDefined('game-app').then(function(){
+        var app=document.querySelector('game-app');
+        if(app) waitForTitle(app);
+      });
+    } else {
+      var app=document.querySelector('game-app');
+      if(app) waitForTitle(app);
+    }
+  }
+
+  if(document.readyState==='complete'||document.readyState==='interactive') start();
+  else window.addEventListener('DOMContentLoaded', start, {once:!0});
+}();
