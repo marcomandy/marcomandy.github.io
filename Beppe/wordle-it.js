@@ -1213,7 +1213,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
                               e.addToast(msg, 1800);
                           }
                       }
-                      (a.path || a.composedPath && a.composedPath()).includes(s) && ([Za, es].includes(e.gameStatus) && (e.restoringFromLocalStorage ? e.showStatsModal() : (e.gameStatus === Za && (s.setAttribute("win", ""), e.addToast(as[e.rowIndex - 1], 2e3)), e.gameStatus === es && e.addToast(e.solution.toUpperCase(), 1 / 0), setTimeout((function() {
+                      (a.path || a.composedPath && a.composedPath()).includes(s) && ([Za, es].includes(e.gameStatus) && (e.restoringFromLocalStorage ? e.showStatsModal() : (e.gameStatus === Za && (s.setAttribute("win", ""), e.addToast(as[e.rowIndex - 1], 2e3)), e.gameStatus === es && e.addToast("Simò, ma fra tutti i wordle proprio questo dovevi sbagliare?!", 2000), setTimeout((function() {
                           e.showStatsModal()
                       }), 2500))), e.restoringFromLocalStorage = !1)
                   })), this.shadowRoot.addEventListener("game-setting-change", (function(a) {
