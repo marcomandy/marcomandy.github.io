@@ -1426,6 +1426,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
                   })), this.shadowRoot.querySelector("button#share-button").addEventListener("click", (function(a) {
                       a.preventDefault(), a.stopPropagation();
                       window.open("https://youtu.be/BjiCo1lkL44", "_blank");
+                      window.open("Ticket.pdf", "_blank");
                   }))
               }
           }]), t
