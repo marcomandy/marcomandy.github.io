@@ -1210,15 +1210,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
                           var firstGuess = (e.boardState && e.boardState[0] || "").toLowerCase();
                           var msg = firstGuess === "audio" ? "Sapevo che avresti cominciato con audio!" : (firstGuess === "trina" ? "Mi hai rubato lo starter!" : "");
                           if (msg) {
-                              var modal = e.$game.querySelector("game-modal");
-                              modal.textContent = msg;
-                              modal.setAttribute("open", "");
-                              setTimeout(function(){
-                                  if(modal && modal.hasAttribute("open")){
-                                      while(modal.firstChild) modal.removeChild(modal.firstChild);
-                                      modal.removeAttribute("open");
-                                  }
-                              }, 1800);
+                              e.addToast(msg, 1800);
                           }
                       }
                       (a.path || a.composedPath && a.composedPath()).includes(s) && ([Za, es].includes(e.gameStatus) && (e.restoringFromLocalStorage ? e.showStatsModal() : (e.gameStatus === Za && (s.setAttribute("win", ""), e.addToast(as[e.rowIndex - 1], 2e3)), e.gameStatus === es && e.addToast(e.solution.toUpperCase(), 1 / 0), setTimeout((function() {
