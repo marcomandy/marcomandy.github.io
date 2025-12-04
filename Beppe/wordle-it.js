@@ -1405,6 +1405,13 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
               value: function() {
                   var e = this;
                   this.shadowRoot.appendChild(cs.content.cloneNode(!0));
+                  var C = this.gameApp && this.gameApp.gameStatus === Za;
+                  if (!C) {
+                      var H = this.shadowRoot.querySelector("h1");
+                      if (H) H.textContent = "Noooo Simò! E mò?!";
+                      var B = this.shadowRoot.querySelector("button#share-button");
+                      if (B) B.style.display = "none";
+                  }
                   for (var a = this.shadowRoot.getElementById("statistics"), s = this.shadowRoot.getElementById("guess-distribution"), t = Math.max.apply(Math, g(Object.values(this.stats.guesses))), o = 1; o < Object.keys(this.stats.guesses).length; o++) {
                       var r = o,
                           n = this.stats.guesses[o],
