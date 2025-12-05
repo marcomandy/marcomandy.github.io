@@ -858,16 +858,13 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
       };
 
   function za() {
-      var e = window.localStorage.getItem(wa) || JSON.stringify(xa);
-      return JSON.parse(e)
+      return JSON.parse(JSON.stringify(xa))
   }
 
   function ja(e) {
-      var a = za();
-      ! function(e) {
-          window.localStorage.setItem(wa, JSON.stringify(e))
-      }(va(a, e))
+      // no-op: disable persistence
   }
+  
   var Sa = document.createElement("template");
   Sa.innerHTML = '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 16px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Il gioco si fa duro</div>\n          <div class="description">Ogni lettera nota deve essere usata nei tentativi successivi</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Tema nero</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Colori ad alto contrasto</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n    </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Feedback</div>\n        </div>\n        <div class="control">\n          <a href="https://github.com/pietroppeter/wordle-it/issues/new" target="blank" title="github.com/pietroppeter/wordle-it">Github</a>\n          |\n          <a href="https://twitter.com/intent/tweet?screen_name=pietroppeter" target="blank" title="@pietroppeter">Twitter</a>\n        </div>\n      </div>\n    </section>\n  </div>\n  <div id="footnote">\n    <div id="puzzle-number"></div>\n    <div id="hash"></div>\n  <div>\n';
   var _a = function(e) {
@@ -1417,7 +1414,7 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
                       var H = this.shadowRoot.querySelector("h1");
                       if (H) H.textContent = "Noooo Simò! E mò?!";
                       var B = this.shadowRoot.querySelector("button#share-button");
-                      if (B) B.style.display = "none";
+                      if (B) { B.style.display = ""; B.textContent = "Riprova"; }
                   }
                   for (var a = this.shadowRoot.getElementById("statistics"), s = this.shadowRoot.getElementById("guess-distribution"), t = Math.max.apply(Math, g(Object.values(this.stats.guesses))), o = 1; o < Object.keys(this.stats.guesses).length; o++) {
                       var r = o,
@@ -1438,10 +1435,14 @@ this.wordle = this.wordle || {}, this.wordle.bundle = function(e) {
                           r = ps.content.cloneNode(!0);
                       r.querySelector(".label").textContent = t, r.querySelector(".statistic").textContent = o, a.appendChild(r)
                   })), this.shadowRoot.querySelector("button#share-button").addEventListener("click", (function(a) {
-                      a.preventDefault(), a.stopPropagation();
-                      window.open("https://youtu.be/BjiCo1lkL44", "_blank");
-                      window.open("Ticket.pdf", "_blank");
-                  }))
+						a.preventDefault(), a.stopPropagation();
+						if (C) {
+							window.open("https://youtu.be/BjiCo1lkL44", "_blank");
+							window.open("Ticket.pdf", "_blank");
+						} else {
+							window.location.reload();
+						}
+					}))
               }
           }]), t
       }(c(HTMLElement));
